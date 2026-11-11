@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Внедрение Bitrix24 за 30 дней — агентство «Поток»</title>
+  <meta name="description" content="Внедряем Bitrix24 так, что сотрудники реально пользуются системой. Фиксированная смета, сроки в договоре, обучение и поддержка включены. Запуск за 30 дней." />
+  <meta property="og:title" content="Bitrix24, которым реально пользуются — за 30 дней" />
+  <meta property="og:description" content="CRM, задачи и отчёты под ключ. Фиксированная смета и сроки в договоре. Обучение и 60 дней поддержки включены." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#070B14',
+            night: '#0B1220',
+            cloud: '#F4F6FB',
+            brand: { DEFAULT: '#2563FF', 400: '#5B85FF', 600: '#1B4BE0' },
+            mint: '#00E5A0'
+          },
+          fontFamily: {
+            sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 20px 60px -20px rgba(11, 18, 32, 0.18)',
+            glow: '0 0 0 1px rgba(255,255,255,.08), 0 30px 80px -30px rgba(37,99,255,.55)'
+          },
+          opacity: {
+            15: '.15',
+            35: '.35',
+            45: '.45',
+            55: '.55',
+            65: '.65',
+            85: '.85'
+          }
+        }
+      }
+    }
+  </script>
+
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+
+  <style>
+    html { scroll-padding-top: 88px; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-plus { transform: rotate(45deg); }
+    .faq-plus { transition: transform .2s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body class="bg-white font-sans text-ink antialiased pb-16 lg:pb-0">
+
+  <!-- ================= HEADER ================= -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-night/80 backdrop-blur-xl">
+    <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
+      <a href="#top" class="flex items-center gap-3">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand to-mint text-sm font-extrabold text-night">П</span>
+        <span class="leading-tight">
+          <span class="block text-sm font-extrabold text-white">Поток</span>
+          <span class="block text-[11px] font-medium uppercase tracking-widest text-white/50">Bitrix24</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-white/70 lg:flex">
+        <a href="#services" class="transition hover:text-white">Услуги</a>
+        <a href="#process" class="transition hover:text-white">Как работаем</a>
+        <a href="#cases" class="transition hover:text-white">Кейсы</a>
+        <a href="#pricing" class="transition hover:text-white">Цены</a>
+        <a href="#faq" class="transition hover:text-white">FAQ</a>
+      </nav>
+
+      <div class="hidden items-center gap-5 lg:flex">
+        <a href="tel:+74951234567" class="text-sm font-semibold text-white/80 transition hover:text-white">+7 (495) 123-45-67</a>
+        <a href="#lead" class="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-mint">
+          Бесплатный аудит
+        </a>
+      </div>
+
+      <button id="menuBtn" type="button" aria-label="Открыть меню" aria-expanded="false"
+        class="grid h-10 w-10 place-items-center rounded-xl border border-white/15 text-white lg:hidden">
+        <svg id="menuIconOpen" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+        <svg id="menuIconClose" class="hidden h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-night lg:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4 text-sm font-medium text-white/80">
+        <a href="#services" class="rounded-lg px-3 py-2.5 hover:bg-white/5">Услуги</a>
+        <a href="#process" class="rounded-lg px-3 py-2.5 hover:bg-white/5">Как работаем</a>
+        <a href="#cases" class="rounded-lg px-3 py-2.5 hover:bg-white/5">Кейсы</a>
+        <a href="#pricing" class="rounded-lg px-3 py-2.5 hover:bg-white/5">Цены</a>
+        <a href="#faq" class="rounded-lg px-3 py-2.5 hover:bg-white/5">FAQ</a>
+        <a href="#lead" class="mt-2 rounded-full bg-mint px-5 py-3 text-center font-bold text-night">Бесплатный аудит</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="top" class="relative overflow-hidden bg-night pt-[72px] text-white">
+    <div class="pointer-events-none absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-brand/30 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-32 top-24 h-[420px] w-[420px] rounded-full bg-mint/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,255,.18),transparent_55%)]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-6 pb-20 pt-14 sm:pt-20 lg:pb-28">
+      <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
+
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-white/80">
+            <span class="h-1.5 w-1.5 rounded-full bg-mint"></span>
+            Агентство внедрения Bitrix24 · с 2016 года
+          </span>
+
+          <h1 class="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Bitrix24, которым<br class="hidden sm:block" />
+            <span class="bg-gradient-to-r from-mint to-brand-400 bg-clip-text text-transparent">реально пользуются</span><br class="hidden sm:block" />
+            — за 30 дней
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            Внедряем CRM, задачи и отчёты так, что сотрудники переходят в систему без саботажа.
+            <span class="font-semibold text-white">Фиксированная смета, сроки в договоре, обучение и поддержка включены.</span>
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#lead" class="group inline-flex items-center justify-center gap-2 rounded-full bg-mint px-7 py-4 text-base font-bold text-night transition hover:bg-white">
+              Получить план внедрения
+              <svg class="h-4 w-4 transition group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </a>
+            <a href="#cases" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 text-base font-semibold text-white transition hover:border-white/50 hover:bg-white/5">
+              Смотреть кейсы
+            </a>
+          </div>
+
+          <p class="mt-4 text-sm text-white/40">Аудит 40 минут · без обязательств · ответим в течение рабочего дня</p>
+
+          <dl class="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-4">
+            <div>
+              <dt class="text-2xl font-extrabold text-white">30</dt>
+              <dd class="mt-1 text-xs leading-snug text-white/50">дней до рабочего запуска</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-extrabold text-white">120+</dt>
+              <dd class="mt-1 text-xs leading-snug text-white/50">проектов внедрения</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-extrabold text-white">94%</dt>
+              <dd class="mt-1 text-xs leading-snug text-white/50">активных пользователей через месяц</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-extrabold text-white">0 ₽</dt>
+              <dd class="mt-1 text-xs leading-snug text-white/50">перерасход сверх сметы</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Dashboard mock -->
+        <div class="relative mx-auto w-full max-w-[520px] lg:max-w-none">
+          <div class="rounded-[28px] border border-white/10 bg-white/[0.06] p-3 shadow-glow backdrop-blur">
+            <div class="rounded-[20px] bg-white p-5 text-ink">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-[#FF5F57]"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-[#28C840]"></span>
+                </div>
+                <span class="rounded-full bg-cloud px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-ink/50">CRM · Воронка</span>
+              </div>
+
+              <div class="mt-5 grid grid-cols-3 gap-2.5">
+                <div class="rounded-xl bg-cloud p-3">
+                  <p class="text-[10px] font-semibold uppercase tracking-wide text-ink/40">Новые</p>
+                  <p class="mt-1 text-xl font-extrabold">42</p>
+                </div>
+                <div class="rounded-xl bg-cloud p-3">
+                  <p class="text-[10px] font-semibold uppercase tracking-wide text-ink/40">В работе</p>
+                  <p class="mt-1 text-xl font-extrabold">18</p>
+                </div>
+                <div class="rounded-xl bg-[#E9FFF7] p-3">
+                  <p class="text-[10px] font-semibold uppercase tracking-wide text-emerald-700/60">Оплачено</p>
+                  <p class="mt-1 text-xl font-extrabold text-emerald-600">7</p>
+                </div>
+              </div>
+
+              <div class="mt-5 flex items-end gap-2">
+                <div class="h-10 w-full rounded-md bg-brand/15"></div>
+                <div class="h-16 w-full rounded-md bg-brand/25"></div>
+                <div class="h-12 w-full rounded-md bg-brand/20"></div>
+                <div class="h-24 w-full rounded-md bg-brand/45"></div>
+                <div class="h-20 w-full rounded-md bg-brand/60"></div>
+                <div class="h-28 w-full rounded-md bg-brand"></div>
+                <div class="h-24 w-full rounded-md bg-mint"></div>
+              </div>
+
+              <div class="mt-5 space-y-2.5">
+                <div class="flex items-center gap-3 rounded-xl border border-ink/5 p-3">
+                  <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-mint/20 text-emerald-600">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" /></svg>
+                  </span>
+                  <div class="min-w-0">
+                    <p class="truncate text-xs font-bold">Согласовать КП для «Север»</p>
+                    <p class="text-[10px] text-ink/40">Сегодня · 14:00</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 rounded-xl border border-ink/5 p-3">
+                  <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand/10 text-brand">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                  </span>
+                  <div class="min-w-0">
+                    <p class="truncate text-xs font-bold">Позвонить новым лидам</p>
+                    <p class="text-[10px] text-ink/40">8 задач · автопостановка</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -right-3 top-8 hidden items-center gap-2 rounded-2xl border border-white/10 bg-night/90 px-4 py-3 shadow-soft backdrop-blur sm:flex">
+            <span class="grid h-8 w-8 place-items-center rounded-full bg-mint/15 text-mint">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+            </span>
+            <div>
+              <p class="text-sm font-extrabold leading-none text-white">94%</p>
+              <p class="mt-1 text-[10px] leading-none text-white/50">активных пользователей</p>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-5 -left-3 hidden items-center gap-2 rounded-2xl border border-white/10 bg-night/90 px-4 py-3 shadow-soft backdrop-blur sm:flex">
+            <span class="grid h-8 w-8 place-items-center rounded-full bg-brand/20 text-brand-400">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8m0 0h-5m5 0v5" /></svg>
+            </span>
+            <div>
+              <p class="text-sm font-extrabold leading-none text-white">−38%</p>
+              <p class="mt-1 text-[10px] leading-none text-white/50">цикл сделки</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAINS ================= -->
+  <section class="bg-white py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand">Знакомо?</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Портал купили, а работают в Excel</h2>
+        <p class="mt-4 text-lg text-ink/60">Bitrix24 сам по себе не повышает продажи. Всё решает то, как он настроен и встроен в ежедневные процессы.</p>
+      </div>
+
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- card -->
+        <div class="reveal rounded-2xl border border-ink/10 bg-white p-6 transition hover:border-brand/30 hover:shadow-soft">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg>
+          </span>
+          <h3 class="mt-4 font-bold">Сотрудники заходят «для галочки»</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Раз в неделю, чтобы закрыть задачи. Реальная работа остаётся в мессенджерах.</p>
+        </div>
+
+        <div class="reveal rounded-2xl border border-ink/10 bg-white p-6 transition hover:border-brand/30 hover:shadow-soft">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2M8 12h8" /></svg>
+          </span>
+          <h3 class="mt-4 font-bold">CRM заполняют задним числом</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Данные неполные и недостоверные — отчётам нельзя верить, решения принимаются «на глаз».</p>
+        </div>
+
+        <div class="reveal rounded-2xl border border-ink/10 bg-white p-6 transition hover:border-brand/30 hover:shadow-soft">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 15l4-4 3 3 5-6" /></svg>
+          </span>
+          <h3 class="mt-4 font-bold">Отчёты собираются вручную</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Каждую пятницу руководитель тратит часы на выгрузки в Excel вместо управления продажами.</p>
+        </div>
+
+        <div class="reveal rounded-2xl border border-ink/10 bg-white p-6 transition hover:border-brand/30 hover:shadow-soft">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.4 5.6a9 9 0 1 0 0 12.8M22 4v6h-6" /></svg>
+          </span>
+          <h3 class="mt-4 font-bold">Подрядчик настроил и исчез</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">После сдачи проекта некому задать вопрос. Система обрастает «костылями» и умирает.</p>
+        </div>
+
+        <div class="reveal rounded-2xl border border-ink/10 bg-white p-6 transition hover:border-brand/30 hover:shadow-soft">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+          </span>
+          <h3 class="mt-4 font-bold">Смета выросла «по ходу»</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Начали за 100 тысяч, закончили за 250. Каждая доработка — отдельный счёт и новые сроки.</p>
+        </div>
+
+        <div class="reveal rounded-2xl border border-ink/10 bg-white p-6 transition hover:border-brand/30 hover:shadow-soft">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-500">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" /></svg>
+          </span>
+          <h3 class="mt-4 font-bold">Задачи живут в чатах</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Поручения теряются, сроки срываются, а спросить «кто виноват» — некого.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" class="bg-cloud py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="reveal max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand">Что делаем</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Не «настраиваем Bitrix24», а выстраиваем рабочий процесс</h2>
+        <p class="mt-4 text-lg text-ink/60">Начинаем с ваших задач и метрик, а не с возможностей системы. Поэтому внедрение не превращается в набор ненужных функций.</p>
+      </div>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        <article class="reveal rounded-3xl bg-white p-7 shadow-sm transition hover:shadow-soft sm:p-8">
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 14l4-4 3 3 5-6" /></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-bold">CRM и продажи</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Воронки под ваш цикл сделки, обязательные поля, автозадачи и контроль на каждом этапе.</p>
+          <ul class="mt-4 space-y-2 text-sm text-ink/70">
+            <li class="flex gap-2"><span class="text-mint">✓</span> Воронки и стадии под реальный процесс</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Лиды, сделки, счета, повторные продажи</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Права доступа и дисциплина заполнения</li>
+          </ul>
+        </article>
+
+        <article class="reveal rounded-3xl bg-white p-7 shadow-sm transition hover:shadow-soft sm:p-8">
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4" /></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-bold">Задачи и проекты</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Поручения перестают теряться в чатах: проекты, чек-листы, дедлайны и напоминания.</p>
+          <ul class="mt-4 space-y-2 text-sm text-ink/70">
+            <li class="flex gap-2"><span class="text-mint">✓</span> Проекты, спринты и повторяющиеся задачи</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Чек-листы и контроль сроков</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Связка задач со сделками и клиентами</li>
+          </ul>
+        </article>
+
+        <article class="reveal rounded-3xl bg-white p-7 shadow-sm transition hover:shadow-soft sm:p-8">
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" /></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-bold">Автоматизация и интеграции</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Роботы, триггеры и связка с сайтом, телефонией, почтой и 1С — без ручной рутины.</p>
+          <ul class="mt-4 space-y-2 text-sm text-ink/70">
+            <li class="flex gap-2"><span class="text-mint">✓</span> Роботы и триггеры по этапам сделки</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Сайт, телефония, WhatsApp, почта</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Обмен с 1С и другими системами</li>
+          </ul>
+        </article>
+
+        <article class="reveal rounded-3xl bg-white p-7 shadow-sm transition hover:shadow-soft sm:p-8">
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-brand/10 text-brand">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V9m5 10V5m5 14v-7m5 7V3" /></svg>
+          </span>
+          <h3 class="mt-5 text-xl font-bold">Аналитика и отчёты</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Дашборды для руководителя: воронка, конверсия, нагрузка и деньги — в реальном времени.</p>
+          <ul class="mt-4 space-y-2 text-sm text-ink/70">
+            <li class="flex gap-2"><span class="text-mint">✓</span> Дашборды по продажам и команде</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Отчёты без ручных выгрузок</li>
+            <li class="flex gap-2"><span class="text-mint">✓</span> Метрики, по которым видно результат</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" class="bg-white py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand">Как работаем</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Пять шагов от аудита до работающей системы</h2>
+        <p class="mt-4 text-lg text-ink/60">Прозрачный процесс: вы всегда знаете, что происходит, кто за это отвечает и когда будет результат.</p>
+      </div>
+
+      <ol class="relative mt-14 grid gap-6 lg:grid-cols-5 lg:gap-4">
+        <div class="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-brand/0 via-brand/30 to-brand/0 lg:block"></div>
+
+        <li class="reveal relative rounded-2xl border border-ink/10 bg-white p-6 lg:border-0 lg:p-0">
+          <span class="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-brand text-lg font-extrabold text-white shadow-lg shadow-brand/30">01</span>
+          <h3 class="mt-5 font-bold">Аудит процессов</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">40 минут с руководителем: цели, боли, текущие инструменты и метрики успеха.</p>
+          <p class="mt-3 text-xs font-semibold text-brand">1 день</p>
+        </li>
+
+        <li class="reveal relative rounded-2xl border border-ink/10 bg-white p-6 lg:border-0 lg:p-0">
+          <span class="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-ink text-lg font-extrabold text-white">02</span>
+          <h3 class="mt-5 font-bold">План и смета</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Фиксируем объём работ, цену и сроки в договоре. Никаких «выяснится по ходу».</p>
+          <p class="mt-3 text-xs font-semibold text-brand">2–3 дня</p>
+        </li>
+
+        <li class="reveal relative rounded-2xl border border-ink/10 bg-white p-6 lg:border-0 lg:p-0">
+          <span class="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-ink text-lg font-extrabold text-white">03</span>
+          <h3 class="mt-5 font-bold">Внедрение</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Настраиваем CRM, задачи, автоматизацию и интеграции. Показываем прогресс каждую неделю.</p>
+          <p class="mt-3 text-xs font-semibold text-brand">2–4 недели</p>
+        </li>
+
+        <li class="reveal relative rounded-2xl border border-ink/10 bg-white p-6 lg:border-0 lg:p-0">
+          <span class="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-ink text-lg font-extrabold text-white">04</span>
+          <h3 class="mt-5 font-bold">Обучение и запуск</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Обучаем команду, пишем короткие регламенты и запускаем работу строго в системе.</p>
+          <p class="mt-3 text-xs font-semibold text-brand">3–5 дней</p>
+        </li>
+
+        <li class="reveal relative rounded-2xl border border-ink/10 bg-white p-6 lg:border-0 lg:p-0">
+          <span class="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-mint text-lg font-extrabold text-night shadow-lg shadow-mint/30">05</span>
+          <h3 class="mt-5 font-bold">Поддержка</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">Остаёмся рядом: отвечаем на вопросы, донастраиваем сценарии под реальную работу.</p>
+          <p class="mt-3 text-xs font-semibold text-brand">60 дней</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= CASES ================= -->
+  <section id="cases" class="bg-night py-20 text-white sm:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="reveal flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <div class="max-w-2xl">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-mint">Кейсы</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Результат в цифрах, а не в отзывах «всё понравилось»</h2>
+        </div>
+        <a href="#lead" class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold transition hover:border-mint hover:text-mint">
+          Хочу так же
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>
+        </a>
+      </div>
+
+      <div class="mt-12 grid gap-5 lg:grid-cols-3">
+        <article class="reveal flex flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-7">
+          <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">Оптовая торговля</span>
+          <p class="mt-6 text-4xl font-extrabold text-mint">−38%</p>
+          <p class="text-sm text-white/50">цикл сделки</p>
+          <p class="mt-5 text-sm leading-relaxed text-white/70">Менеджеры вели сделки в Excel и WhatsApp. Настроили воронку, автозадачи и обмен с 1С — руководитель впервые увидел реальную картину продаж.</p>
+          <div class="mt-auto flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-xs text-white/50">
+            <span><b class="text-white">100%</b> сделок в CRM</span>
+            <span><b class="text-white">24</b> сотрудника</span>
+          </div>
+        </article>
+
+        <article class="reveal flex flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-7">
+          <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">Строительство</span>
+          <p class="mt-6 text-4xl font-extrabold text-mint">14 дней</p>
+          <p class="text-sm text-white/50">до рабочего запуска</p>
+          <p class="mt-5 text-sm leading-relaxed text-white/70">Хаос в мессенджерах и срывы сроков. Перенесли объекты в проекты Bitrix24, настроили чек-листы, напоминания и контроль этапов.</p>
+          <div class="mt-auto flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-xs text-white/50">
+            <span><b class="text-white">87%</b> задач в системе</span>
+            <span><b class="text-white">60</b> сотрудников</span>
+          </div>
+        </article>
+
+        <article class="reveal flex flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-7">
+          <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">Услуги / агентство</span>
+          <p class="mt-6 text-4xl font-extrabold text-mint">−12 ч</p>
+          <p class="text-sm text-white/50">рутины в неделю</p>
+          <p class="mt-5 text-sm leading-relaxed text-white/70">Руководитель собирал отчёты вручную по пятницам. Автоматизировали дашборды и повторяющиеся задачи — цифры под рукой в любой момент.</p>
+          <div class="mt-auto flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-xs text-white/50">
+            <span><b class="text-white">3</b> отчёта автоматически</span>
+            <span><b class="text-white">18</b> человек</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section id="pricing" class="bg-cloud py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand">Стоимость</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Понятные пакеты без скрытых доплат</h2>
+        <p class="mt-4 text-lg text-ink/60">Цена фиксируется в договоре после аудита. Всё, что нужно для запуска, уже включено в пакет.</p>
+      </div>
+
+      <div class="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
+        <!-- Start -->
+        <article class="reveal flex flex-col rounded-3xl border border-ink/10 bg-white p-7 sm:p-8">
+          <h3 class="text-lg font-bold">Старт</h3>
+          <p class="mt-1 text-sm text-ink/50">Для отдела продаж до 10 человек</p>
+          <p class="mt-6 text-4xl font-extrabold">90 000 ₽</p>
+          <p class="mt-1 text-sm text-ink/50">за проект · 2 недели</p>
+          <ul class="mt-6 space-y-3 text-sm text-ink/70">
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Аудит процессов и целей</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Настройка CRM: воронки, поля, стадии</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Перенос базы клиентов</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Права доступа сотрудников</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Обучение команды (2 сессии)</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Поддержка 30 дней</li>
+          </ul>
+          <a href="#lead" class="mt-8 inline-flex justify-center rounded-full border border-ink/15 px-6 py-3.5 text-sm font-bold transition hover:border-ink hover:bg-ink hover:text-white">Обсудить проект</a>
+        </article>
+
+        <!-- Business -->
+        <article class="reveal relative flex flex-col rounded-3xl bg-ink p-7 text-white shadow-glow sm:p-8">
+          <span class="absolute right-6 top-6 rounded-full bg-mint px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-night">Хит</span>
+          <h3 class="text-lg font-bold">Бизнес</h3>
+          <p class="mt-1 text-sm text-white/50">Для компании 10–50 человек</p>
+          <p class="mt-6 text-4xl font-extrabold">190 000 ₽</p>
+          <p class="mt-1 text-sm text-white/50">за проект · 3–4 недели</p>
+          <ul class="mt-6 space-y-3 text-sm text-white/80">
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Всё из пакета «Старт»</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Задачи и проекты</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Автоматизация: роботы и триггеры</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Интеграции: сайт, телефония, 1С</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Отчёты и дашборды</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Обучение + регламенты</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Поддержка 60 дней</li>
+          </ul>
+          <a href="#lead" class="mt-8 inline-flex justify-center rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-night transition hover:bg-white">Получить план внедрения</a>
+        </article>
+
+        <!-- Corporate -->
+        <article class="reveal flex flex-col rounded-3xl border border-ink/10 bg-white p-7 sm:p-8">
+          <h3 class="text-lg font-bold">Корпорация</h3>
+          <p class="mt-1 text-sm text-ink/50">Для компаний 50+ человек и филиалов</p>
+          <p class="mt-6 text-4xl font-extrabold">от 350 000 ₽</p>
+          <p class="mt-1 text-sm text-ink/50">за проект · от 6 недель</p>
+          <ul class="mt-6 space-y-3 text-sm text-ink/70">
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Всё из пакета «Бизнес»</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Мультиотдельность и филиалы</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Кастомные сценарии и доработки</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Миграция из других систем</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Аналитика для руководителя</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Выделенный менеджер + SLA</li>
+            <li class="flex gap-2.5"><span class="text-mint">✓</span> Поддержка 90 дней</li>
+          </ul>
+          <a href="#lead" class="mt-8 inline-flex justify-center rounded-full border border-ink/15 px-6 py-3.5 text-sm font-bold transition hover:border-ink hover:bg-ink hover:text-white">Запросить смету</a>
+        </article>
+      </div>
+
+      <p class="reveal mt-8 text-center text-sm text-ink/50">Не знаете, какой пакет нужен? <a href="#lead" class="font-semibold text-brand underline-offset-4 hover:underline">Бесплатный аудит за 40 минут</a> подскажет.</p>
+    </div>
+  </section>
+
+  <!-- ================= GUARANTEES ================= -->
+  <section class="bg-white py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="reveal grid gap-6 rounded-3xl bg-ink p-8 text-white sm:p-10 lg:grid-cols-4 lg:gap-8">
+        <div class="lg:col-span-1">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-mint">Гарантии</p>
+          <h2 class="mt-3 text-2xl font-extrabold leading-tight">Риски берём на себя</h2>
+          <p class="mt-3 text-sm leading-relaxed text-white/50">Обещания закреплены в договоре, а не только на сайте.</p>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-mint">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+          </span>
+          <div>
+            <h3 class="text-sm font-bold">Фиксированная смета</h3>
+            <p class="mt-1 text-xs leading-relaxed text-white/50">Цена в договоре не меняется. Перерасход — за наш счёт.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-mint">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+          </span>
+          <div>
+            <h3 class="text-sm font-bold">Сроки в договоре</h3>
+            <p class="mt-1 text-xs leading-relaxed text-white/50">За просрочку по нашей вине платим неустойку.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-mint">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+          </span>
+          <div>
+            <h3 class="text-sm font-bold">Запуск с командой</h3>
+            <p class="mt-1 text-xs leading-relaxed text-white/50">Не уходим, пока сотрудники не начнут работать в системе.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="bg-cloud py-20 sm:py-24">
+    <div class="mx-auto max-w-3xl px-6">
+      <div class="reveal text-center">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand">FAQ</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Частые вопросы</h2>
+      </div>
+
+      <div class="mt-10 space-y-3">
+        <details class="reveal group rounded-2xl bg-white p-6 shadow-sm">
+          <summary class="flex items-center justify-between gap-4 font-bold">
+            Сколько стоит внедрение Bitrix24?
+            <span class="faq-plus shrink-0 text-brand">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-ink/60">Проекты начинаются от 90 000 ₽. Точная стоимость зависит от количества процессов, интеграций и сотрудников. После 40-минутного аудита мы называем финальную цену и фиксируем её в договоре — она не изменится.</p>
+        </details>
+
+        <details class="reveal group rounded-2xl bg-white p-6 shadow-sm">
+          <summary class="flex items-center justify-between gap-4 font-bold">
+            Сколько времени занимает внедрение?
+            <span class="faq-plus shrink-0 text-brand">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-ink/60">Типовой проект — 2–4 недели, корпоративный — от 6 недель. Сроки зависят от готовности вашей команды и сложности интеграций. Конкретную дату запуска прописываем в договоре.</p>
+        </details>
+
+        <details class="reveal group rounded-2xl bg-white p-6 shadow-sm">
+          <summary class="flex items-center justify-between gap-4 font-bold">
+            Что делать, если сотрудники не будут пользоваться системой?
+            <span class="faq-plus shrink-0 text-brand">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-ink/60">Это главный риск внедрения, поэтому мы работаем с ним отдельно: обучаем команду, пишем короткие регламенты и остаёмся на поддержке 60 дней. Если через 30 дней после запуска активность ниже согласованной цели — дорабатываем сценарии и обучение бесплатно.</p>
+        </details>
+
+        <details class="reveal group rounded-2xl bg-white p-6 shadow-sm">
+          <summary class="flex items-center justify-between gap-4 font-bold">
+            Можно перенести данные из Excel или другой CRM?
+            <span class="faq-plus shrink-0 text-brand">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-ink/60">Да. Переносим клиентов, сделки, историю переписки и задачи из Excel, amoCRM, «1С» и других систем. Перед переносом делаем тестовую выгрузку, чтобы проверить корректность данных.</p>
+        </details>
+
+        <details class="reveal group rounded-2xl bg-white p-6 shadow-sm">
+          <summary class="flex items-center justify-between gap-4 font-bold">
+            Работаете с облаком и коробочной версией?
+            <span class="faq-plus shrink-0 text-brand">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-ink/60">Да, внедряем на любом тарифе Bitrix24 — в облаке и в коробке. Для коробочной версии дополнительно берём на себя настройку сервера и обновлений.</p>
+        </details>
+
+        <details class="reveal group rounded-2xl bg-white p-6 shadow-sm">
+          <summary class="flex items-center justify-between gap-4 font-bold">
+            Что входит в поддержку после запуска?
+            <span class="faq-plus shrink-0 text-brand">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-ink/60">Ответы на вопросы команды в течение 4 рабочих часов, консультации по сценариям, мелкие донастройки и помощь с отчётами. Всё это включено в пакет — отдельно платить не нужно.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEAD FORM ================= -->
+  <section id="lead" class="relative overflow-hidden bg-night py-20 text-white sm:py-24">
+    <div class="pointer-events-none absolute -left-32 bottom-0 h-[420px] w-[420px] rounded-full bg-brand/25 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-24 top-0 h-[360px] w-[360px] rounded-full bg-mint/10 blur-3xl"></div>
+
+    <div class="relative mx-auto grid max-w-7xl items-start gap-12 px-6 lg:grid-cols-2 lg:gap-16">
+      <div class="reveal">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-mint">Бесплатный аудит</p>
+        <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">За 40 минут покажем, что тормозит ваши продажи</h2>
+        <p class="mt-5 max-w-lg text-lg leading-relaxed text-white/60">Разберём ваши процессы, назовём 3 точки роста и предложим план внедрения с фиксированной сметой. Без презентаций «о нас» и навязывания услуг.</p>
+
+        <ul class="mt-8 space-y-4 text-sm text-white/80">
+          <li class="flex items-center gap-3">
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-mint/15 text-mint">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" /></svg>
+            </span>
+            План внедрения и смета — в течение 3 дней
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-mint/15 text-mint">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" /></svg>
+            </span>
+            Никаких обязательств и предоплат за аудит
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-mint/15 text-mint">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" /></svg>
+            </span>
+            Говорим на языке бизнеса, а не терминов Bitrix24
+          </li>
+        </ul>
+      </div>
+
+      <div class="reveal rounded-3xl bg-white p-6 text-ink shadow-2xl sm:p-8">
+        <h3 class="text-xl font-extrabold">Получить план внедрения</h3>
+        <p class="mt-1 text-sm text-ink/50">Заполните форму — свяжемся в течение рабочего дня.</p>
+
+        <form id="leadForm" class="mt-6 space-y-4" novalidate>
+          <div>
+            <label for="name" class="mb-1.5 block text-xs font-bold uppercase tracking-wide text-ink/50">Имя *</label>
+            <input id="name" name="name" type="text" required autocomplete="name" placeholder="Как к вам обращаться"
+              class="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-ink/30 focus:border-brand focus:ring-4 focus:ring-brand/10" />
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="phone" class="mb-1.5 block text-xs font-bold uppercase tracking-wide text-ink/50">Телефон *</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__"
+                class="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-ink/30 focus:border-brand focus:ring-4 focus:ring-brand/10" />
+            </div>
+            <div>
+              <label for="company" class="mb-1.5 block text-xs font-bold uppercase tracking-wide text-ink/50">Компания</label>
+              <input id="company" name="company" type="text" autocomplete="organization" placeholder="Название"
+                class="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-ink/30 focus:border-brand focus:ring-4 focus:ring-brand/10" />
+            </div>
+          </div>
+
+          <div>
+            <label for="comment" class="mb-1.5 block text-xs font-bold uppercase tracking-wide text-ink/50">Что хотите наладить?</label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Например: продажи в Excel, задачи в мессенджерах"
+              class="w-full resize-none rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-ink/30 focus:border-brand focus:ring-4 focus:ring-brand/10"></textarea>
+          </div>
+
+          <label class="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-ink/50">
+            <input type="checkbox" required class="mt-0.5 h-4 w-4 shrink-0 rounded border-ink/30 text-brand focus:ring-brand/30" />
+            <span>Согласен на обработку персональных данных и принимаю <a href="#" class="font-semibold text-brand underline-offset-2 hover:underline">политику конфиденциальности</a>.</span>
+          </label>
+
+          <button type="submit" class="group flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-4 text-base font-extrabold text-white transition hover:bg-brand-600">
+            Получить план внедрения
+            <svg class="h-4 w-4 transition group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>
+          </button>
+
+          <p class="text-center text-xs text-ink/40">Ответим в течение рабочего дня. Без спама и навязчивых звонков.</p>
+        </form>
+
+        <div id="formSuccess" class="hidden py-10 text-center">
+          <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-mint/20 text-emerald-600">
+            <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" /></svg>
+          </span>
+          <h3 class="mt-4 text-xl font-extrabold">Заявка отправлена</h3>
+          <p class="mt-2 text-sm text-ink/55">Спасибо! Свяжемся с вами в течение рабочего дня и согласуем время аудита.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-ink pb-10 pt-16 text-white/60">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <a href="#top" class="flex items-center gap-3">
+            <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand to-mint text-sm font-extrabold text-night">П</span>
+            <span class="text-sm font-extrabold text-white">Поток</span>
+          </a>
+          <p class="mt-4 max-w-xs text-sm leading-relaxed">Внедряем Bitrix24 так, чтобы система работала на бизнес, а не пылилась на полке.</p>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-white/40">Услуги</p>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a href="#services" class="transition hover:text-white">Внедрение CRM</a></li>
+            <li><a href="#services" class="transition hover:text-white">Задачи и проекты</a></li>
+            <li><a href="#services" class="transition hover:text-white">Автоматизация</a></li>
+            <li><a href="#services" class="transition hover:text-white">Интеграции</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-white/40">Компания</p>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a href="#cases" class="transition hover:text-white">Кейсы</a></li>
+            <li><a href="#pricing" class="transition hover:text-white">Цены</a></li>
+            <li><a href="#faq" class="transition hover:text-white">FAQ</a></li>
+            <li><a href="#lead" class="transition hover:text-white">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-white/40">Связаться</p>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a href="tel:+74951234567" class="font-semibold text-white transition hover:text-mint">+7 (495) 123-45-67</a></li>
+            <li><a href="mailto:hello@potok.ru" class="transition hover:text-white">hello@potok.ru</a></li>
+            <li><a href="#" class="transition hover:text-white">Telegram</a></li>
+            <li><a href="#" class="transition hover:text-white">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2026 Агентство «Поток». Все права защищены.</p>
+        <div class="flex gap-5">
+          <a href="#" class="transition hover:text-white">Политика конфиденциальности</a>
+          <a href="#" class="transition hover:text-white">Договор оферты</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
+    <a href="#lead" class="flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-extrabold text-white">
+      Бесплатный аудит за 40 минут
+    </a>
+  </div>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('menuIconOpen');
+    const iconClose = document.getElementById('menuIconClose');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('is-visible'));
+    }
+
+    // Lead form (demo). Подключите свой endpoint / CRM.
+    const form = document.getElementById('leadForm');
+    const success = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Пример отправки:
+      // fetch('/api/lead', { method: 'POST', body: new FormData(form) });
+
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
