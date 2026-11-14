@@ -1,0 +1,16 @@
+{
+  "name": "sophia-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лендинг «София»: внедрение Bitrix24 и 1С",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --watch",
+    "jsonld": "python3 scripts/build-jsonld.py",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}

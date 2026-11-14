@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* Утилиты собираются только из файлов ниже */
+@source "../index.html";
+
+/* ================= Тема ================= */
+@theme {
+  --color-ink: #070B14;
+  --color-night: #0B1220;
+  --color-cloud: #F4F6FB;
+  --color-brand: #2563FF;
+  --color-brand-400: #5B85FF;
+  --color-brand-600: #1B4BE0;
+  --color-mint: #00E5A0;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+
+  --shadow-soft: 0 20px 60px -20px rgba(11, 18, 32, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 30px 80px -30px rgba(37, 99, 255, 0.55);
+}
+
+/* ================= Базовые стили ================= */
+html {
+  scroll-padding-top: 88px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ================= Появление блоков ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ================= FAQ ================= */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
+.faq-plus {
+  transition: transform 0.2s ease;
+}
+
+/* ================= Кнопка «Наверх» ================= */
+#toTop {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+#toTop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* ================= Липкий CTA на мобильных ================= */
+#stickyCta {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+#stickyCta.cta-hidden {
+  transform: translateY(110%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ================= Уважение к настройкам движения ================= */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  #toTop {
+    transition: none;
+  }
+
+  #stickyCta {
+    transition: none;
+  }
+}
