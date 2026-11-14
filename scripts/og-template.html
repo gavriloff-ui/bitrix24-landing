@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px; height: 630px; overflow: hidden;
+      background: #0B1220; color: #fff;
+      font-family: Manrope, system-ui, 'Segoe UI', sans-serif;
+      position: relative;
+    }
+    .glow-a { position: absolute; width: 720px; height: 720px; border-radius: 999px;
+      background: radial-gradient(circle, rgba(37,99,255,.55), transparent 62%); top: -260px; left: -180px; }
+    .glow-b { position: absolute; width: 560px; height: 560px; border-radius: 999px;
+      background: radial-gradient(circle, rgba(0,229,160,.28), transparent 62%); bottom: -240px; right: -120px; }
+    .grid { position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 60px 60px; opacity: .5; }
+    .wrap { position: relative; padding: 64px 72px; height: 100%; display: flex; flex-direction: column; }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand-name { font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-sub { display: block; font-size: 13px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 2px; }
+    h1 { margin-top: 56px; font-size: 62px; line-height: 1.04; font-weight: 800; letter-spacing: -.03em; max-width: 900px; }
+    .grad { background: linear-gradient(90deg, #00E5A0, #5B85FF);
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .sub { margin-top: 26px; font-size: 24px; line-height: 1.4; color: rgba(255,255,255,.68); max-width: 840px; }
+    .stats { margin-top: auto; display: flex; gap: 14px; flex-wrap: wrap; }
+    .chip { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06);
+      border-radius: 999px; padding: 11px 22px; font-size: 19px; font-weight: 700; color: rgba(255,255,255,.9); }
+    .chip b { color: #00E5A0; }
+    .site { position: absolute; right: 72px; bottom: 74px; font-size: 22px; font-weight: 700; color: rgba(255,255,255,.55); }
+  </style>
+</head>
+<body>
+  <div class="glow-a"></div>
+  <div class="glow-b"></div>
+  <div class="grid"></div>
+  <div class="wrap">
+    <div class="brand">
+      <img src="../brand/logo-tile.svg" width="56" height="56" alt="" />
+      <div>
+        <div class="brand-name">София</div>
+        <span class="brand-sub">Bitrix24 · 1С</span>
+      </div>
+    </div>
+
+    <h1>Bitrix24, которым <span class="grad">реально пользуются</span><br />— за 30 дней</h1>
+    <p class="sub">Внедрение CRM, задач, аналитики и 1С под ключ. Фиксированная смета и сроки в договоре.</p>
+
+    <div class="stats">
+      <span class="chip"><b>30</b> дней до запуска</span>
+      <span class="chip"><b>120+</b> проектов</span>
+      <span class="chip"><b>94%</b> активных пользователей</span>
+    </div>
+  </div>
+  <div class="site">sophia.su</div>
+</body>
+</html>

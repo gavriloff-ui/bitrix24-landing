@@ -9,29 +9,46 @@
   <meta property="og:description" content="CRM, задачи, учёт и интеграции под ключ. Фиксированная смета и сроки в договоре. Обучение и 60 дней поддержки включены." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sophia.su/" />
-  <meta property="og:image" content="https://sophia.su/brand/logo-tile-512.png" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
+  <meta property="og:image" content="https://sophia.su/brand/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Bitrix24, которым реально пользуются — за 30 дней. Агентство «София»" />
   <meta property="og:site_name" content="София" />
   <meta property="og:locale" content="ru_RU" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bitrix24 и 1СФранчайзинг — агентство «София»" />
+  <meta name="twitter:title" content="Bitrix24 и 1С:Франчайзинг — агентство «София»" />
   <meta name="twitter:description" content="CRM, задачи, учёт и интеграции под ключ. Фиксированная смета и сроки в договоре." />
-  <meta name="twitter:image" content="https://sophia.su/brand/logo-tile-512.png" />
+  <meta name="twitter:image" content="https://sophia.su/brand/og-cover.png" />
+  <meta name="twitter:image:alt" content="Bitrix24, которым реально пользуются — за 30 дней" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://sophia.su/" />
 
   <link rel="icon" type="image/svg+xml" href="brand/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png" />
   <link rel="apple-touch-icon" href="brand/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#0B1220" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <script>
+    // ================= Настройки сайта =================
+    // metrikaId — номер счётчика из metrika.yandex.ru (пусто — аналитика выключена).
+    // leadEndpoint — адрес приёма заявок (CRM, бот, почтовый шлюз). Пусто — заявка
+    //               открывается как письмо в почтовой программе (mailto).
+    window.SOPHIA_CONFIG = {
+      metrikaId: '',
+      leadEndpoint: '',
+      leadEmail: 'info@sophia.su',
+      leadPhone: '+79022836065',
+    };
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="stylesheet" href="assets/css/site.css?v=e421e6a7" />
 
   <noscript>
     <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
@@ -878,7 +895,7 @@
         </article>
       </div>
 
-      <p class="reveal mt-8 text-center text-sm text-ink/50">Не знаете, какой пакет нужен? <a href="#lead" class="font-semibold text-brand underline-offset-4 hover:underline">Бесплатный аудит за 40 минут</a> подскажет.</p>
+      <p class="reveal mt-8 text-center text-sm text-ink/50">Не знаете, какой пакет нужен? <a href="#quiz" class="font-semibold text-brand underline-offset-4 hover:underline">Подберём за 30 секунд</a> или <a href="#lead" class="font-semibold text-brand underline-offset-4 hover:underline">закажите бесплатный аудит</a> — поможем выбрать.</p>
       <p class="reveal mt-3 text-center text-sm text-ink/50">Нужен учёт в 1С или связка с Bitrix24? <a href="#1c" class="font-semibold text-amber-600 underline-offset-4 hover:underline">Смотрите направление 1С:Франчайзинг</a> — смета рассчитывается отдельно.</p>
 
       <!-- Комбинации с 1С -->
@@ -920,6 +937,122 @@
             <a href="#lead" data-direction="both" class="mt-5 inline-flex items-center gap-1.5 pt-1 text-sm font-bold text-amber-600 underline-offset-4 hover:underline">Обсудить связку</a>
           </article>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUIZ ================= -->
+  <section id="quiz" class="relative overflow-hidden bg-night py-20 text-white sm:py-24">
+    <div class="pointer-events-none absolute -right-24 top-10 h-[380px] w-[380px] rounded-full bg-brand/25 blur-3xl"></div>
+    <div class="pointer-events-none absolute -left-20 bottom-0 h-[320px] w-[320px] rounded-full bg-mint/10 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-4xl px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-mint">Подбор пакета</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Не знаете, какой пакет нужен?</h2>
+        <p class="mt-4 text-lg text-white/60">Четыре вопроса — и покажем подходящий пакет, сроки и что в него войдёт. Без звонка и регистрации.</p>
+      </div>
+
+      <form id="quizForm" class="reveal mt-10 rounded-3xl bg-white p-6 text-ink shadow-2xl sm:p-8">
+        <div class="grid gap-8 sm:grid-cols-2">
+          <fieldset>
+            <legend class="text-sm font-extrabold">1. Сколько человек будет работать в системе?</legend>
+            <div class="mt-3 space-y-2">
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="size" value="small" checked class="h-4 w-4 text-brand focus:ring-brand/30" />
+                До 10 человек
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="size" value="medium" class="h-4 w-4 text-brand focus:ring-brand/30" />
+                10–50 человек
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="size" value="large" class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Больше 50 или филиалы
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-sm font-extrabold">2. Где сейчас ведёте продажи и задачи?</legend>
+            <div class="mt-3 space-y-2">
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="current" value="excel" checked class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Excel, таблицы, мессенджеры
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="current" value="crm" class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Другая CRM, которой не пользуются
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="current" value="none" class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Ничего, начинаем с нуля
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-sm font-extrabold">3. Что нужно наладить? <span class="font-medium text-ink/40">(можно несколько)</span></legend>
+            <div class="mt-3 space-y-2">
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="checkbox" name="needs" value="sales" class="h-4 w-4 rounded text-brand focus:ring-brand/30" />
+                Продажи и CRM
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="checkbox" name="needs" value="tasks" class="h-4 w-4 rounded text-brand focus:ring-brand/30" />
+                Задачи и проекты
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="checkbox" name="needs" value="reports" class="h-4 w-4 rounded text-brand focus:ring-brand/30" />
+                Отчёты и аналитика
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="checkbox" name="needs" value="automation" class="h-4 w-4 rounded text-brand focus:ring-brand/30" />
+                Автоматизация и интеграции
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-sm font-extrabold">4. Нужен ли учёт в 1С?</legend>
+            <div class="mt-3 space-y-2">
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="one_c" value="yes" class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Да, нужна связка с 1С
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="one_c" value="no" checked class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Нет, только CRM
+              </label>
+              <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 px-4 py-3 text-sm font-semibold transition hover:border-ink/25 has-[:checked]:border-brand has-[:checked]:bg-brand/5">
+                <input type="radio" name="one_c" value="unsure" class="h-4 w-4 text-brand focus:ring-brand/30" />
+                Пока не знаем
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="group mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-4 text-base font-extrabold text-white transition hover:bg-brand-600">
+          Подобрать пакет
+          <svg class="h-4 w-4 transition group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>
+        </button>
+        <p class="mt-3 text-center text-xs text-ink/40">Расчёт идёт прямо в браузере — ответы никуда не отправляются.</p>
+      </form>
+
+      <div id="quizResult" role="status" aria-live="polite" class="mt-8 hidden rounded-3xl bg-white p-6 text-ink shadow-2xl sm:p-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand">Рекомендация</p>
+            <h3 class="mt-2 text-2xl font-extrabold">Пакет «<span id="quizPackage">Бизнес</span>»</h3>
+            <p class="mt-1 text-sm text-ink/55"><span id="quizPrice">190 000 ₽</span> · <span id="quizTerm">3–4 недели</span></p>
+            <p id="quizWhy" class="mt-4 max-w-xl text-sm leading-relaxed text-ink/60"></p>
+          </div>
+          <div class="flex shrink-0 flex-col gap-2">
+            <button id="quizToLead" type="button" class="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-brand-600">Обсудить пакет</button>
+            <button id="quizRestart" type="button" class="inline-flex items-center justify-center rounded-full border border-ink/15 px-6 py-3 text-sm font-bold transition hover:border-ink hover:bg-ink hover:text-white">Пройти заново</button>
+          </div>
+        </div>
+        <ul id="quizIncludes" class="mt-6 grid gap-2 text-sm text-ink/70 sm:grid-cols-2"></ul>
       </div>
     </div>
   </section>
@@ -1174,8 +1307,8 @@
           <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-mint/20 text-emerald-600">
             <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" /></svg>
           </span>
-          <h3 class="mt-4 text-xl font-extrabold">Заявка отправлена</h3>
-          <p class="mt-2 text-sm text-ink/55">Спасибо! Свяжемся с вами в течение рабочего дня и согласуем время аудита.</p>
+          <h3 id="successTitle" class="mt-4 text-xl font-extrabold">Заявка отправлена</h3>
+          <p id="successText" class="mt-2 text-sm text-ink/55">Спасибо! Свяжемся с вами в течение рабочего дня и согласуем время аудита.</p>
           <p class="mt-4 text-sm text-ink/50">Не дождались звонка? <a href="tel:+79022836065" class="font-bold text-brand underline-offset-4 hover:underline">+7 (902) 283-60-65</a> или <a href="https://max.ru/u/f9LHodD0cOJuSj1ZVfkz0_WCvEy0rOXBAHUVX5MJUNIuSjwjn65QXRBWynk" target="_blank" rel="noopener" class="font-bold text-brand underline-offset-4 hover:underline">напишите в MAX</a></p>
         </div>
       </div>
@@ -1237,9 +1370,30 @@
 
   <!-- Mobile sticky CTA -->
   <div id="stickyCta" class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
-    <a href="#lead" class="flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-extrabold text-white">
-      Бесплатный аудит за 40 минут
-    </a>
+    <div class="flex items-center gap-2">
+      <a href="tel:+79022836065" class="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-ink/15 px-4 py-3 text-sm font-bold text-ink transition hover:border-ink">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" /></svg>
+        Позвонить
+      </a>
+      <a href="#lead" class="flex flex-1 items-center justify-center rounded-full bg-brand px-4 py-3 text-sm font-extrabold text-white">
+        Бесплатный аудит
+      </a>
+    </div>
+  </div>
+
+  <!-- Согласие на cookie и аналитику -->
+  <div id="cookieBanner" class="fixed inset-x-0 bottom-[72px] z-50 hidden border-t border-white/10 bg-ink/95 px-4 py-4 text-white shadow-2xl backdrop-blur lg:bottom-20">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p class="max-w-3xl text-xs leading-relaxed text-white/70">
+        Мы используем cookie и Яндекс.Метрику, чтобы понимать, какие блоки сайта полезны.
+        Данные об использовании передаются в Яндекс. Подробнее — в
+        <a href="/privacy.html" class="font-semibold text-white underline underline-offset-2">политике конфиденциальности</a>.
+      </p>
+      <div class="flex shrink-0 gap-2">
+        <button id="cookieDecline" type="button" class="rounded-full border border-white/20 px-5 py-2.5 text-xs font-bold text-white/80 transition hover:border-white/50 hover:text-white">Только необходимые</button>
+        <button id="cookieAccept" type="button" class="rounded-full bg-mint px-5 py-2.5 text-xs font-extrabold text-night transition hover:bg-white">Принять</button>
+      </div>
+    </div>
   </div>
 
   <!-- Кнопка «Наверх» -->
@@ -1366,19 +1520,153 @@
       ctaObserver.observe(leadSection);
     }
 
-    // ================= Форма =================
-    // Укажите свой endpoint (CRM, мессенджер-бот, почта). Пустая строка — демо-режим.
-    const LEAD_ENDPOINT = '';
+    // ================= Аналитика и согласие на cookie =================
+    const CONFIG = Object.assign(
+      { metrikaId: '', leadEndpoint: '', leadEmail: 'info@sophia.su', leadPhone: '+79022836065' },
+      window.SOPHIA_CONFIG || {}
+    );
+    const CONSENT_KEY = 'sophia-cookie-consent';
+
+    const goal = (name) => {
+      if (!CONFIG.metrikaId || typeof window.ym !== 'function') return;
+      window.ym(CONFIG.metrikaId, 'reachGoal', name);
+    };
+
+    const initMetrica = () => {
+      if (!CONFIG.metrikaId || window.__ymReady) return;
+      window.__ymReady = true;
+
+      (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+        m[i].l = 1 * new Date();
+        for (let j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) return;
+        }
+        k = e.createElement(t); a = e.getElementsByTagName(t)[0];
+        k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+      window.ym(CONFIG.metrikaId, 'init', {
+        clickmap: true,
+        trackHash: true,
+        webvisor: true,
+        accurateTrackBounce: true,
+        ecommerce: false,
+      });
+
+      // Цели: звонок и переход в MAX (включая липкий CTA и футер)
+      document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+        link.addEventListener('click', () => goal('phone'));
+      });
+      document.querySelectorAll('a[href*="max.ru"]').forEach((link) => {
+        link.addEventListener('click', () => goal('max'));
+      });
+    };
+
+    const readConsent = () => {
+      try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+    };
+    const writeConsent = (value) => {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* приватный режим */ }
+    };
+
+    const cookieBanner = document.getElementById('cookieBanner');
+
+    if (readConsent() === 'accepted') {
+      initMetrica();
+    } else if (readConsent() !== 'declined' && cookieBanner) {
+      cookieBanner.classList.remove('hidden');
+    }
+
+    if (cookieBanner) {
+      document.getElementById('cookieAccept').addEventListener('click', () => {
+        writeConsent('accepted');
+        cookieBanner.classList.add('hidden');
+        initMetrica();
+        goal('cookie-accept');
+      });
+      document.getElementById('cookieDecline').addEventListener('click', () => {
+        writeConsent('declined');
+        cookieBanner.classList.add('hidden');
+      });
+    }
+
+    // ================= Форма заявки =================
+    // endpoint не задан → заявка открывается письмом в почтовой программе (mailto).
+    const LEAD_ENDPOINT = CONFIG.leadEndpoint;
+    const LEAD_EMAIL = CONFIG.leadEmail;
+    const DIRECTION_LABELS = {
+      bitrix24: 'Bitrix24',
+      '1c': '1С:Франчайзинг',
+      both: 'Bitrix24 + 1С',
+    };
 
     const form = document.getElementById('leadForm');
     const success = document.getElementById('formSuccess');
+    const successTitle = document.getElementById('successTitle');
+    const successText = document.getElementById('successText');
     const errorBox = document.getElementById('formError');
     const submitBtn = form.querySelector('button[type="submit"]');
     const submitBtnHtml = submitBtn.innerHTML;
 
-    const showSuccess = () => {
+    const buildMailto = (data) => {
+      const lines = [
+        'Заявка с сайта sophia.su',
+        '',
+        'Имя: ' + (data.get('name') || '—'),
+        'Телефон: ' + (data.get('phone') || '—'),
+        'Компания: ' + (data.get('company') || '—'),
+        'Направление: ' + (DIRECTION_LABELS[data.get('direction')] || '—'),
+        'Комментарий: ' + (data.get('comment') || '—'),
+        'Страница: ' + (data.get('page') || window.location.href),
+      ];
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach((key) => {
+        if (data.get(key)) lines.push(key + ': ' + data.get(key));
+      });
+      const subject = 'Заявка с сайта — ' + (data.get('name') || 'без имени');
+      return 'mailto:' + LEAD_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    };
+
+    const showSuccess = (mode) => {
+      if (mode === 'mailto') {
+        successTitle.textContent = 'Письмо готово к отправке';
+        successText.textContent = 'Мы открыли почтовую программу с готовым письмом. Осталось нажать «Отправить» — и мы свяжемся с вами в течение рабочего дня.';
+      }
       form.classList.add('hidden');
       success.classList.remove('hidden');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    const showSendError = (mailto) => {
+      errorBox.textContent = 'Не удалось отправить заявку. ';
+
+      const mailLink = document.createElement('a');
+      mailLink.href = mailto;
+      mailLink.className = 'underline';
+      mailLink.textContent = 'Отправить письмом';
+      errorBox.appendChild(mailLink);
+
+      errorBox.appendChild(document.createTextNode(' или позвоните: '));
+
+      const phoneLink = document.createElement('a');
+      phoneLink.href = 'tel:+79022836065';
+      phoneLink.className = 'underline';
+      phoneLink.textContent = '+7 (902) 283-60-65';
+      errorBox.appendChild(phoneLink);
+
+      errorBox.appendChild(document.createTextNode(' / '));
+
+      const maxLink = document.createElement('a');
+      maxLink.href = 'https://max.ru/u/f9LHodD0cOJuSj1ZVfkz0_WCvEy0rOXBAHUVX5MJUNIuSjwjn65QXRBWynk';
+      maxLink.target = '_blank';
+      maxLink.rel = 'noopener';
+      maxLink.className = 'underline';
+      maxLink.textContent = 'MAX';
+      errorBox.appendChild(maxLink);
+
+      errorBox.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = submitBtnHtml;
     };
 
     form.addEventListener('submit', async (e) => {
@@ -1394,7 +1682,7 @@
 
       // Honeypot: скрытое поле заполнил бот — показываем успех, но ничего не отправляем
       if (data.get('website')) {
-        showSuccess();
+        showSuccess('sent');
         return;
       }
 
@@ -1406,8 +1694,13 @@
       });
       data.append('page', window.location.href);
 
+      const mailto = buildMailto(data);
+
+      // Без endpoint заявка уходит письмом через почтовую программу
       if (!LEAD_ENDPOINT) {
-        showSuccess();
+        goal('lead-mail');
+        window.location.href = mailto;
+        showSuccess('mailto');
         return;
       }
 
@@ -1417,14 +1710,138 @@
       try {
         const response = await fetch(LEAD_ENDPOINT, { method: 'POST', body: data });
         if (!response.ok) throw new Error('HTTP ' + response.status);
-        showSuccess();
+        goal('lead');
+        showSuccess('sent');
       } catch (err) {
-        errorBox.innerHTML = 'Не удалось отправить заявку. Позвоните нам: <a href="tel:+79022836065" class="underline">+7 (902) 283-60-65</a> или напишите в <a href="https://max.ru/u/f9LHodD0cOJuSj1ZVfkz0_WCvEy0rOXBAHUVX5MJUNIuSjwjn65QXRBWynk" target="_blank" rel="noopener" class="underline">MAX</a>';
-        errorBox.classList.remove('hidden');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = submitBtnHtml;
+        showSendError(mailto);
       }
     });
+
+    // ================= Квиз подбора пакета =================
+    const QUIZ_PACKAGES = {
+      small: {
+        name: 'Старт',
+        price: '90 000 ₽',
+        term: '2 недели',
+        includes: [
+          'Аудит процессов и целей',
+          'Настройка CRM: воронки, поля, стадии',
+          'Перенос базы клиентов',
+          'Права доступа и обучение команды',
+          'Поддержка 30 дней',
+        ],
+      },
+      medium: {
+        name: 'Бизнес',
+        price: '190 000 ₽',
+        term: '3–4 недели',
+        includes: [
+          'Всё из пакета «Старт»',
+          'Задачи и проекты',
+          'Автоматизация: роботы и триггеры',
+          'Интеграции: сайт, телефония, 1С',
+          'Отчёты, дашборды и регламенты',
+          'Поддержка 60 дней',
+        ],
+      },
+      large: {
+        name: 'Корпорация',
+        price: 'от 350 000 ₽',
+        term: 'от 6 недель',
+        includes: [
+          'Всё из пакета «Бизнес»',
+          'Мультиотдельность и филиалы',
+          'Кастомные сценарии и доработки',
+          'Миграция из других систем',
+          'Выделенный менеджер + SLA',
+          'Поддержка 90 дней',
+        ],
+      },
+    };
+
+    const SIZE_LABELS = { small: 'до 10 человек', medium: '10–50 человек', large: 'больше 50 человек' };
+    const CURRENT_LABELS = { excel: 'сейчас Excel и мессенджеры', crm: 'есть CRM, которой не пользуются', none: 'начинаем с нуля' };
+    const NEEDS_LABELS = {
+      sales: 'продажи и CRM',
+      tasks: 'задачи и проекты',
+      reports: 'отчёты и аналитика',
+      automation: 'автоматизация и интеграции',
+    };
+    const ONEC_LABELS = { yes: 'нужен учёт в 1С', no: 'учёт в 1С не нужен', unsure: 'вопрос по 1С решим на аудите' };
+
+    const quizForm = document.getElementById('quizForm');
+    const quizResult = document.getElementById('quizResult');
+
+    if (quizForm && quizResult) {
+      const quizPackage = document.getElementById('quizPackage');
+      const quizPrice = document.getElementById('quizPrice');
+      const quizTerm = document.getElementById('quizTerm');
+      const quizWhy = document.getElementById('quizWhy');
+      const quizIncludes = document.getElementById('quizIncludes');
+      let quizSummary = '';
+
+      quizForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const data = new FormData(quizForm);
+        const size = data.get('size') || 'small';
+        const current = data.get('current') || 'excel';
+        const needs = data.getAll('needs');
+        const oneC = data.get('one_c') || 'no';
+        const pkg = QUIZ_PACKAGES[size] || QUIZ_PACKAGES.small;
+        const direction = oneC === 'no' ? 'bitrix24' : 'both';
+
+        quizPackage.textContent = pkg.name;
+        quizPrice.textContent = pkg.price;
+        quizTerm.textContent = pkg.term;
+
+        const needsText = needs.length ? needs.map((key) => NEEDS_LABELS[key] || key).join(', ') : 'уточним на аудите';
+        quizWhy.textContent = 'Команда ' + SIZE_LABELS[size] + ', ' + CURRENT_LABELS[current] + '. Наладить: ' + needsText + '. ' +
+          (oneC === 'yes' ? 'Нужен учёт в 1С — рекомендуем связку Bitrix24 + 1С.' : oneC === 'unsure' ? 'Вопрос по 1С разберём на аудите.' : 'Достаточно Bitrix24, без 1С.');
+
+        quizIncludes.textContent = '';
+        pkg.includes.forEach((item) => {
+          const li = document.createElement('li');
+          li.className = 'flex gap-2.5';
+          const check = document.createElement('span');
+          check.className = 'text-mint';
+          check.textContent = '✓';
+          li.appendChild(check);
+          li.appendChild(document.createTextNode(' ' + item));
+          quizIncludes.appendChild(li);
+        });
+
+        quizSummary = 'Подбор пакета: ' + SIZE_LABELS[size] + '; ' + CURRENT_LABELS[current] +
+          '; нужно: ' + needsText + '; ' + ONEC_LABELS[oneC] + '. Рекомендован «' + pkg.name + '».';
+
+        quizForm.classList.add('hidden');
+        quizResult.classList.remove('hidden');
+        quizResult.dataset.direction = direction;
+        quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        goal('quiz');
+      });
+
+      document.getElementById('quizRestart').addEventListener('click', () => {
+        quizResult.classList.add('hidden');
+        quizForm.classList.remove('hidden');
+        quizForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      document.getElementById('quizToLead').addEventListener('click', () => {
+        const direction = quizResult.dataset.direction || 'bitrix24';
+        if (directionSelect) directionSelect.value = direction;
+
+        const commentField = document.getElementById('comment');
+        if (commentField && (!commentField.value.trim() || commentField.value.startsWith('Подбор пакета'))) {
+          commentField.value = quizSummary;
+        }
+
+        goal('quiz-to-lead');
+        document.getElementById('lead').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const nameField = document.getElementById('name');
+        if (nameField) setTimeout(() => nameField.focus({ preventScroll: true }), 600);
+      });
+    }
   </script>
 </body>
 </html>

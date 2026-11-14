@@ -22,6 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Сборка идёт до rsync: npm run build обновляет site.css и ?v=хеш в HTML,
+      # поэтому в _site должна попасть уже согласованная версия.
+      - name: Пересобрать CSS (если npm доступен)
+        continue-on-error: true
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+
       - name: Подготовить статику
         run: |
           mkdir -p _site
@@ -36,12 +44,6 @@ jobs:
             --exclude='README.md' \
             --exclude='session-*.md' \
             ./_site/
-
-      - name: Пересобрать CSS (если npm доступен)
-        continue-on-error: true
-        run: |
-          npm ci --no-audit --no-fund
-          npm run build
 
       - name: Проверить сборку
         run: |

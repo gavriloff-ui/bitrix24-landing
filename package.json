@@ -4,9 +4,11 @@
   "private": true,
   "description": "Лендинг «София»: внедрение Bitrix24 и 1С",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --minify",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --minify && node scripts/version-css.js",
     "watch": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --watch",
     "jsonld": "python3 scripts/build-jsonld.py",
+    "icons": "python3 scripts/build-icons.py",
+    "og": "node scripts/build-og.js",
     "serve": "python3 -m http.server 8080"
   },
   "devDependencies": {
