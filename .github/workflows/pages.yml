@@ -1,4 +1,4 @@
-name: Deploy landing to GitHub Pages
+name: Publish landing
 
 on:
   push:
@@ -6,37 +6,60 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
+# Новый прогон отменяет предыдущий: зависший раннер не блокирует очередь
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: publish
+  cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  publish:
+    name: Сборка и публикация в gh-pages
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare static site
+      - name: Подготовить статику
         run: |
           mkdir -p _site
-          rsync -a --exclude='.git' --exclude='.github' --exclude='README.md' ./ _site/
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='src' \
+            --exclude='scripts' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='README.md' \
+            --exclude='session-*.md' \
+            ./_site/
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
+      - name: Пересобрать CSS (если npm доступен)
+        continue-on-error: true
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+      - name: Проверить сборку
+        run: |
+          test -f _site/index.html || { echo "::error::нет _site/index.html"; exit 1; }
+          test -f _site/assets/css/site.css || { echo "::error::нет _site/assets/css/site.css — выполните npm run build"; exit 1; }
+          test -f _site/sitemap.xml || { echo "::error::нет _site/sitemap.xml"; exit 1; }
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # GitHub Pages в этом репозитории настроен на источник «ветка gh-pages»,
+      # поэтому сайт публикуется именно отсюда.
+      - name: Опубликовать в gh-pages
+        run: |
+          cd _site
+          git init -q
+          git checkout -q -b gh-pages
+          git add -A
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Deploy ${GITHUB_SHA}"
+          git push -q --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            gh-pages
