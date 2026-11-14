@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бренд-борд «София»</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root {
+      --blue: #2563FF;
+      --mint: #00E5A0;
+      --navy: #0B1220;
+      --cloud: #F4F6FB;
+      --muted: #64748B;
+      --line: rgba(11, 18, 32, .1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--cloud);
+      color: var(--navy);
+      font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 72px 0 40px; }
+    .eyebrow {
+      font-size: 12px; font-weight: 800; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--blue);
+    }
+    h1 { margin: 12px 0 10px; font-size: clamp(40px, 7vw, 72px); line-height: .98; letter-spacing: -.04em; }
+    .lead { max-width: 560px; margin: 0; font-size: 18px; line-height: 1.6; color: var(--muted); }
+    h2 { margin: 0 0 6px; font-size: 26px; letter-spacing: -.02em; }
+    .sub { margin: 0 0 24px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    section { padding: 36px 0; }
+    .card { border-radius: 28px; border: 1px solid var(--line); background: #fff; overflow: hidden; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 320px; }
+    .hero > div { display: grid; place-items: center; padding: 40px; }
+    .hero .dark { background: var(--navy); }
+    .hero img { width: 100%; max-width: 380px; height: auto; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tile-card { display: grid; place-items: center; min-height: 220px; padding: 32px; }
+    .tile-card img { width: 132px; height: 132px; }
+    .tile-card.dark { background: var(--navy); border-color: var(--navy); }
+    .tile-card.dark img { width: 132px; }
+    .note { margin: 16px 0 0; font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .sizes { display: flex; align-items: flex-end; gap: 36px; flex-wrap: wrap; padding: 32px; }
+    .size { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .size img { display: block; }
+    .size span { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .04em; }
+    .palette { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .swatch { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+    .swatch .chip { height: 96px; }
+    .swatch .meta { padding: 14px 16px; }
+    .swatch b { display: block; font-size: 14px; }
+    .swatch code { font-size: 12px; color: var(--muted); }
+    .concept { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; padding: 24px; border-radius: 24px; border: 1px solid var(--line); background: #fff; margin-bottom: 14px; }
+    .concept img { width: 152px; height: 152px; display: block; }
+    .concept h3 { margin: 0 0 6px; font-size: 19px; }
+    .concept p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .rule { padding: 24px; border-radius: 24px; background: #fff; border: 1px solid var(--line); }
+    .rule h3 { margin: 0 0 10px; font-size: 16px; }
+    .rule ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    footer { padding: 48px 0 64px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 760px) {
+      .hero, .grid-3, .palette, .rules { grid-template-columns: 1fr; }
+      .concept { grid-template-columns: 1fr; }
+      .hero > div { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Бренд-борд · 2026</div>
+      <h1>София</h1>
+      <p class="lead">Внедрение Bitrix24. Знак, логотип и правила использования. Основная идея — собрать разрозненные процессы в единую работающую систему.</p>
+    </header>
+
+    <section>
+      <div class="card hero">
+        <div class="dark"><img src="logo-inverse.svg" alt="Логотип «София» на тёмном фоне" /></div>
+        <div><img src="logo.svg" alt="Логотип «София» на светлом фоне" /></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Основной знак — «Модуль»</h2>
+      <p class="sub">Знак собран из блоков, как интерфейс Bitrix24. Разрозненные процессы складываются в единую систему, а акцентный блок отмечает результат.</p>
+      <div class="grid-3">
+        <div class="card tile-card"><img src="logo-tile.svg" alt="Знак в градиентном квадрате" /></div>
+        <div class="card tile-card dark"><img src="logo-mark-inverse.svg" alt="Знак на тёмном фоне" /></div>
+        <div class="card tile-card"><img src="logo-mark.svg" alt="Знак на светлом фоне" /></div>
+      </div>
+      <p class="note">Семь блоков образуют кириллическую «С». Акцентный блок в нижнем ряду — финальный модуль, который превращает набор инструментов в работающую систему. Градиент ведёт от синего (задача) к мятному (результат).</p>
+    </section>
+
+    <section>
+      <h2>Размеры</h2>
+      <p class="sub">Минимум для цифровых носителей — 24 px. В фавиконе используется упрощённая версия из трёх блоков.</p>
+      <div class="card sizes">
+        <div class="size"><img src="logo-tile.svg" width="16" height="16" alt="" /><span>16</span></div>
+        <div class="size"><img src="logo-tile.svg" width="24" height="24" alt="" /><span>24</span></div>
+        <div class="size"><img src="logo-tile.svg" width="32" height="32" alt="" /><span>32</span></div>
+        <div class="size"><img src="logo-tile.svg" width="48" height="48" alt="" /><span>48</span></div>
+        <div class="size"><img src="logo-tile.svg" width="64" height="64" alt="" /><span>64</span></div>
+        <div class="size"><img src="logo-tile.svg" width="96" height="96" alt="" /><span>96</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Палитра</h2>
+      <div class="palette">
+        <div class="swatch"><div class="chip" style="background:#2563FF"></div><div class="meta"><b>Синий</b><code>#2563FF</code></div></div>
+        <div class="swatch"><div class="chip" style="background:#00E5A0"></div><div class="meta"><b>Мятный</b><code>#00E5A0</code></div></div>
+        <div class="swatch"><div class="chip" style="background:#0B1220"></div><div class="meta"><b>Тёмный</b><code>#0B1220</code></div></div>
+        <div class="swatch"><div class="chip" style="background:#F4F6FB"></div><div class="meta"><b>Светлый</b><code>#F4F6FB</code></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Альтернативные концепции</h2>
+      <p class="sub">Если нужен другой характер — вот два направления, из которых можно собрать финальную версию.</p>
+      <div class="concept">
+        <img src="concepts/dot.svg" alt="Концепция «Точка»" />
+        <div>
+          <h3>«Точка»</h3>
+          <p>Незамкнутый круг и точка: процесс, который доведён до результата. Более минималистичный и «продуктовый» характер, но точка хуже читается в мелких размерах.</p>
+        </div>
+      </div>
+      <div class="concept">
+        <img src="concepts/path.svg" alt="Концепция «Путь»" />
+        <div>
+          <h3>«Путь»</h3>
+          <p>Маршрут из трёх точек, который складывается в галочку. Прямее говорит о результате и этапах внедрения, но менее уникален визуально.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Правила</h2>
+      <div class="rules">
+        <div class="rule">
+          <h3>Можно</h3>
+          <ul>
+            <li>Использовать плитку или знак без подложки</li>
+            <li>Ставить логотип на светлый или тёмный фон</li>
+            <li>Масштабировать пропорционально</li>
+            <li>Оставлять вокруг знака свободное поле не меньше половины его высоты</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h3>Нельзя</h3>
+          <ul>
+            <li>Менять цвета и направление градиента</li>
+            <li>Поворачивать, растягивать и добавлять тени</li>
+            <li>Убирать акцентный блок или менять его цвет</li>
+            <li>Разбирать знак на отдельные блоки и менять сетку</li>
+            <li>Ставить знак на пёстрый фон без подложки</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      София · внедрение Bitrix24 · <a href="../index.html" style="color:var(--blue)">на главную</a>
+    </footer>
+  </div>
+</body>
+</html>
