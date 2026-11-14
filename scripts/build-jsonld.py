@@ -14,8 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.html"
 
 SITE = "https://sophia.su/"
-TELEPHONE = "+7-8162-55-60-65"
-EMAIL = "hello@sophia.su"
+TELEPHONE = "+7-902-283-60-65"
+EMAIL = "info@sophia.su"
 
 MARKER_START = '  <script type="application/ld+json">'
 MARKER_END = '  </script>'
